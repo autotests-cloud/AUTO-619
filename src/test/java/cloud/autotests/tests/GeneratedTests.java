@@ -5,8 +5,7 @@ import io.qameta.allure.Description;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.title;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -17,15 +16,15 @@ public class GeneratedTests extends TestBase {
     @DisplayName("Проверка работоспособности поиска google")
     void generatedTest() {
         step("Открыть https://google.com", () -> {
-            step("// todo: just add selenium action");
+            open("https://google.com");
         });
 
         step("Ввести \"Selenide\" в поле поиска", () -> {
-            step("// todo: just add selenium action");
+            $("[name=q]").setValue("Selenide").pressEnter();
         });
 
         step("Проверить, что \"selenide.org\" появилось в результатах поиска", () -> {
-            step("// todo: just add selenium action");
+            $("[id=search]").shouldHave(text("selenide.org"));
         });
     }
 
